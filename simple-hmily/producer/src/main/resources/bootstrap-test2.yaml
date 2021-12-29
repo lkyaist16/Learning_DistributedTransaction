@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: simple-producer
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_ADDR:10.16.10.139:8847,10.16.10.139:8848,10.16.10.139:8849}
+        service: ${spring.application.name}
+        namespace: bdb0f345-28d5-43f1-9849-d3a3d1890851
+server:
+  port: 8082
+
+
+dubbo:
+  cloud:
+    subscribed-services: ${spring.application.name}
+  scan:
+    base-packages: com.lkyi
+  protocol:
+    name: dubbo
+    port: 20882
+#  provider:
+#    version: 1.0.1
