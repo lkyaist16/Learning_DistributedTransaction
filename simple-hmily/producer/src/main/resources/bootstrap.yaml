@@ -8,7 +8,7 @@ spring:
       discovery:
         server-addr: ${NACOS_ADDR:10.16.10.139:8847,10.16.10.139:8848,10.16.10.139:8849}
         service: ${spring.application.name}
-        namespace: de556980-52d4-4684-b275-8323b9d6fb11
+        namespace: bdb0f345-28d5-43f1-9849-d3a3d1890851
 server:
   port: 8081
 
