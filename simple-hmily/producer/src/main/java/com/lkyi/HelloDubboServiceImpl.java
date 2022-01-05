@@ -18,12 +18,12 @@ public class HelloDubboServiceImpl implements HelloDubboService{
         return "Producer Accept msg " + msg;
     }
 
-    public String confirm() {
+    public String confirm(String msg) {
         logger.info("confirm");
         return "confirm";
     }
 
-    public String cancel() {
+    public String cancel(String msg) {
         logger.info("cancel");
         return "cancel";
     }

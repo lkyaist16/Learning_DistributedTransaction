@@ -1,5 +1,6 @@
 package com.lkyi;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
@@ -21,7 +22,7 @@ public class RemoteController {
 
 //    @HystrixCommand(fallbackMethod = "fallBack", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")})
 //    @HystrixCommand(commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")})
-    @HmilyTCC(confirmMethod = "confirm", cancelMethod = "cancel")
+//    @HmilyTCC(confirmMethod = "confirm", cancelMethod = "cancel")
     @GetMapping("/helloDubbo")
     public String helloDubbo(String msg) throws InterruptedException {
         return helloDubboService.hello("from consumer");
