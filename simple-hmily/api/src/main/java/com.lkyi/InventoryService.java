@@ -2,7 +2,7 @@ package com.lkyi;
 
 import org.dromara.hmily.annotation.Hmily;
 
-public interface OrderService {
+public interface InventoryService {
 
     /**
      * 冻结库存
@@ -11,6 +11,6 @@ public interface OrderService {
      * @throws InterruptedException
      */
     @Hmily
-    public String preOrder(String msg) throws InterruptedException;
+    public String frozenInventory(String msg) throws InterruptedException;
 
 }

@@ -18,29 +18,25 @@ public class RemoteController {
     @DubboReference
     private HelloDubboService helloDubboService;
 
+    @DubboReference
+    private InventoryService inventoryService;
+
+    @DubboReference
+    private OrderService orderService;
+
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 //    @HystrixCommand(fallbackMethod = "fallBack", commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")})
 //    @HystrixCommand(commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000")})
-//    @HmilyTCC(confirmMethod = "confirm", cancelMethod = "cancel")
     @GetMapping("/helloDubbo")
     public String helloDubbo(String msg) throws InterruptedException {
-        return helloDubboService.hello("from consumer");
+        inventoryService.frozenInventory(msg);
+        orderService.preOrder(msg);
+        return "suc";
     }
 
     public String fallBack() {
         return "fallback";
     }
-
-    public String confirm() {
-        logger.info("confirm");
-        return "confirm";
-    }
-
-    public String cancel() {
-        logger.info("cancel");
-        return "cancel";
-    }
-
 
 }
