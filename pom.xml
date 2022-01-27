@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>simple-hmily</module>
+        <module>simple-rabbitmq</module>
     </modules>
     <packaging>pom</packaging>
 
