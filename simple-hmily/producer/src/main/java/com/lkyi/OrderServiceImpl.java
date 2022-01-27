@@ -6,25 +6,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @DubboService
-public class HelloDubboServiceImpl implements HelloDubboService{
+public class OrderServiceImpl implements OrderService {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     @HmilyTCC(confirmMethod = "confirm", cancelMethod = "cancel")
-    public String hello(String msg) throws InterruptedException {
-//        Thread.sleep(5000);
-        logger.info("Accept msg: " + msg);
-        return "Producer Accept msg " + msg;
+    public String preOrder(String msg) throws InterruptedException {
+        logger.info("创建预下单");
+        return "Create pre order";
     }
 
     public String confirm(String msg) {
-        logger.info("confirm");
-        return "confirm";
+        logger.info("完成订单");
+        return "Complete order";
     }
 
     public String cancel(String msg) {
-        logger.info("cancel");
-        return "cancel";
+        logger.info("更新预下单状态为失败");
+        return "Update pre order status Failed";
     }
 }
